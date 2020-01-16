@@ -42,22 +42,25 @@ Highcharts.addEvent(
                 nodes['相数云'] = {
                     id: '相数云',
                     marker: {
-                        radius: 180
+                        radius: 60
                     }
                 };
                 nodes[link[1]] = {
                     id: link[1],
                     marker: {
-                        radius: 80
+                        radius: 30
                     },
                     color: colors[i++]
                 };
-            } else if (nodes[link[0]] && nodes[link[0]].color) {
-                nodes[link[1]] = {
-                    id: link[1],
-                    color: nodes[link[0]].color
-                };
-            }
+            } else if(link[0] !== "相数云") {
+				nodes[link[1]] = {
+					id: link[1],
+					marker: {
+						radius: 15
+					},
+					color: colors[i++]
+				};
+			}
         });
         e.options.nodes = Object.keys(nodes).map(function (id) {
             return nodes[id];
